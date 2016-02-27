@@ -1,0 +1,54 @@
+﻿@model List<AlCoApp.Models.MediCalLocModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MediCal Locations</h2>
+@using (Html.BeginForm("MediCal", "Locations", FormMethod.Get))
+{
+    @Html.AntiForgeryToken()
+        <p>
+        <fieldset>
+            City to look for 
+            <select id="CityName" name="CityName">
+                <option value=""></option>
+                <option value="Alameda">Alameda</option>
+                <option value="Berkeley">Berkeley</option>
+                <option value="Castro Valley">Castro Valley</option>
+                <option value="Emeryville">Emeryville</option>
+                <option value="Fremont">Fremont</option>
+                <option value="Hayward">Hayward</option>
+                <option value="Livermore">Livermore</option>
+                <option value="Oakland">Oakland</option>
+                <option value="Pleasanton">Pleasanton</option>
+                <option value="San Lorenzo">San Lorenzo</option>
+                <option value="Union CIty">Union CIty</option>
+            </select>
+    <input type="submit" value="Submit" /> 
+
+    </fieldset>
+    </p>
+}
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>Clinic Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (AlCoApp.Models.MediCalLocModel loc in Model)
+    {
+        <tr>
+            <td>@loc.Clinic_Name</td>
+            <td>@loc.Address</td>
+            <td>@loc.City</td>
+            <td>@loc.State</td>
+        </tr>
+    }
+        </tbody>
+</table>

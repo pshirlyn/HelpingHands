@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Poverty Alleviation</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")    
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a href='@Url.Action("Index", "Home")'>
+                    <img src='@Url.Content("~/Content/Images/poverty1.jpg")' alt="Home" style="width: 30px; height: 30px;" />
+                </a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("HelpingHands", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Hungry", "About", "Home")</li>
+                    <li>@Html.ActionLink("Benefits", "Index", "Benefits")</li>
+                    <li>@Html.ActionLink("Restaurants", "Under", "Generic")</li>
+                    <li>@Html.ActionLink("Search Jobs", "Under", "Generic")</li>
+                    <li>@Html.ActionLink("Child Care", "Under", "Generic")</li>
+                    <li>@Html.ActionLink("Elders Care", "Under", "Generic")</li>
+                    <li>@Html.ActionLink("SSA Offices", "SSAOffice", "Locations")</li>
+                    <li>@Html.ActionLink("Apply for MediCal", "MediCal", "Locations")</li>
+                </ul>
+                @*@Html.Partial("_LoginPartial")*@
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - @AlCoApp.Helpers.CommonHelper.HelpReader.WebAppName </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
